@@ -1,4 +1,4 @@
-let gamesqq = [];
+let gamesqq = []; 
 let user = [];
 let level = 0;
 let previous_level = { player1: 0, player2: 0 };
@@ -12,22 +12,38 @@ let h5_player2 = document.querySelector("#p2");
 let bts = ["yellow", "red", "green", "blue"];
 let startButton = document.querySelector("button");
 
-// Start Game when Button is Clicked
+// Start Game when Button is Clicked with Countdown
 startButton.addEventListener("click", function () {
     if (!start_game) {
-        let name1 = document.querySelector("#name1").value || "Player 1";
-        let name2 = document.querySelector("#name2").value || "Player 2";
-
-        players = { player1: name1, player2: name2 };
-        previous_level = { player1: 0, player2: 0 };
-
-        start_game = true;
-        current_player = "player1";
-        level = 0;
-        gamesqq = []; // Reset sequence
-        levelUp();
+        let countdown = 3;
+        h2.innerText = `Starting in ${countdown}...`;
+        
+        let countdownInterval = setInterval(() => {
+            countdown--;
+            if (countdown > 0) {
+                h2.innerText = `Starting in ${countdown}...`;
+            } else {
+                clearInterval(countdownInterval);
+                startNewGame();
+            }
+        }, 1000);
     }
 });
+
+// Start the new game
+function startNewGame() {
+    let name1 = document.querySelector("#name1").value || "Player 1";
+    let name2 = document.querySelector("#name2").value || "Player 2";
+
+    players = { player1: name1, player2: name2 };
+    previous_level = { player1: 0, player2: 0 };
+
+    start_game = true;
+    current_player = "player1";
+    level = 0;
+    gamesqq = [];
+    levelUp();
+}
 
 // Generate a new level sequence
 function levelUp() {
@@ -80,14 +96,12 @@ function switchPlayer() {
     previous_level[current_player] = level - 1;
 
     if (current_player === "player1") {
-        // Player 1 is done, now Player 2 starts from Level 1
         current_player = "player2";
         gamesqq = [];
         level = 0;
         user = [];
         setTimeout(levelUp, 2000);
     } else {
-        // Player 2 is done, compare scores
         compareScores();
     }
 }
