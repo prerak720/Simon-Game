@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
+    <title>Simon Game - Battle Mode</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    <h1> Simon Game </h1>
-    <h2> Level 2 </h2>
-    <h3> </h3>
-    
 <body>
+    <h1>Simon Game - Battle Mode</h1>
+    <h2>Press "Start Game" to Begin</h2>
+    <h3></h3>
+    
+    <!-- Player Name Inputs -->
+    <h4>Please Enter Names</h4>
+    <input type="text" id="name1" placeholder="Enter Player 1 Name">
+    <input type="text" id="name2" placeholder="Enter Player 2 Name">
+    <button>Start Game</button>
+
+    <!-- Score Display -->
+    <h5 id="p1">Player 1's Highest Score: 0</h5>
+    <h5 id="p2">Player 2's Highest Score: 0</h5>
+
+    <!-- Game Buttons -->
     <div class="main">
         <div class="line1">
-       <div class="bts red" type = "button" id="red">1</div>
-       <div class="bts green" type = "button" id = "green">2</div>
-       </div>
-       <div class="line2">
-       <div class="bts yellow" type = "button" id="yellow">3</div>
-       <div class="bts blue" type = "button" id="blue">4</div>
-       </div> 
+            <div class="bts red" id="red">1</div>
+            <div class="bts green" id="green">2</div>
+        </div>
+        <div class="line2">
+            <div class="bts yellow" id="yellow">3</div>
+            <div class="bts blue" id="blue">4</div>
+        </div>
     </div>
+
+    <script src="logic.js"></script>
 </body>
-<script src="logic.js"></script>
 </html>

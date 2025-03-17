@@ -1,36 +1,105 @@
-body{
+/* General Styles */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Title and Headers */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #f5a623;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h3, h4, h5 {
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+/* Input Fields */
+input {
+    padding: 10px;
+    margin: 5px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
     text-align: center;
 }
 
-.bts { 
-     width: 200px;
-     height: 200px;
-     border-radius: 20px;
-     border: 10px solid black;
-     margin: 3rem;
+/* Start Button */
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #f5a623;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    margin-top: 10px;
 }
 
-.main { 
+button:hover {
+    background-color: #d48a1c;
+}
+
+/* Game Container */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Button Grid */
+.line1, .line2 {
+    display: flex;
+}
+
+/* Game Buttons */
+.bts {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
 }
 
-.red {
-    background-color: red;
+/* Color Assignments */
+.red { background-color: red; }
+.green { background-color: green; }
+.yellow { background-color: yellow; color: black; }
+.blue { background-color: blue; }
 
+/* Button Click Effect */
+.bts:active {
+    transform: scale(0.9);
 }
 
-.green{
-    background-color: green;
-}
-.yellow{
-    background-color: yellow;
-}
-
-.blue{
-    background-color: blue;
-}
-
+/* Flash Effect */
 .flash {
-    background-color: wheat;
+    opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .bts {
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
+    }
 }
